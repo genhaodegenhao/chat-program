@@ -1,0 +1,9 @@
+/**app.wxss**/
+@import 'weui.wxss';
+image{
+  border: 0;
+}
+.container {
+  box-sizing: border-box;
+}
+

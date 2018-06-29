@@ -1,0 +1,22 @@
+/**index.wxss**/
+/*header*/
+.slide-image{
+  width: 100%; 
+  height: 100%;
+}
+swiper{
+  height: 500rpx;
+}
+
+/*tab*/
+.tab .weui-flex{
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 32rpx;
+}
+.tab .active{
+  color: red;
+}
+
+@import './content/content.wxss';

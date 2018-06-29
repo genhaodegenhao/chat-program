@@ -1,0 +1,13 @@
+<view>
+  <swiper indicator-dots="{{indicatorDots}}" indicator-color="#fff" indicator-active-color="red"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item.imagesUrl}}" class="slide-image" data-id="{{item.id}}" data-title="{{item.title}}" bindtap='clickhref'/>
+      </swiper-item>
+    </block>
+  </swiper>
+   <!-- <view class='textcolor'>{{text}}</view>  -->
+  <!-- <import src="../innerpages/innerpages.wxml"/>
+  <template is="staffName" data="{{firstName: 'Jane', lastName: 'Mike'}}"></template> -->
+</view>

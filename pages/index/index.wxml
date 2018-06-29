@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="container">
+  <include src="header/header.wxml"/>
+  <include src="tab/tab.wxml"/>
+  <include src="content/content.wxml"/> 
+</view>

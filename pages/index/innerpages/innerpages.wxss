@@ -1,0 +1,4 @@
+/* pages/index/innerpages/innerpages.wxss */
+.textcolor {
+  color: red;
+}

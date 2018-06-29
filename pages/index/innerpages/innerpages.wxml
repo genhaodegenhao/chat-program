@@ -1,0 +1,13 @@
+<view class="textcolor">跳转{{title}}</view>
+<template name="staffName">
+  <view>
+    FirstName: {{firstName}}, LastName: {{lastName}}
+  </view>
+</template>
+<template is="staffName" data="{{...staffA}}"></template>
+<template is="staffName" data="{{...staffB}}"></template>
+<template is="staffName" data="{{...staffC}}"></template>
+<view wx:for="{{lists}}" wx:key="index" wx:for-index="idx" wx:for-item="itemName">{{idx}}:{{itemName.text}}</view>
+<view wx:if="{{length > 5}}"> 1 </view>
+<view wx:elif="{{length > 2}}"> 2 </view>
+<view wx:else> 3 </view>
