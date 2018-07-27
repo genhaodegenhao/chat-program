@@ -30,6 +30,6 @@
       <text class="iconfont icon-roundcheckfill {{activeState == false ? '' : 'active'}}"></text>
       <text class='only-show'>只显示有内容的评价</text>
     </view>
-    <view class='rating-content'>555</view>
+    <button bindtap='sendMessage' type="primary">给商家留言</button>
   </view>
 </view>

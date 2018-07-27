@@ -4,7 +4,10 @@
     "pages/bottomtab/tab",
     "pages/person/person",
     "pages/index/innerpages/innerpages",
-    "pages/index/foodpage/foodpage"
+    "pages/index/foodpage/foodpage",
+    "pages/index/message/message",
+    "pages/index/blog/blog",
+    "pages/index/rating/rating"
   ],
   "window":{
     "backgroundTextStyle":"#eee",

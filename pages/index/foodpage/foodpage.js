@@ -38,7 +38,7 @@ Page({
       ratinglength: ratings.length,
       positivelength: arrpositive.length,
       negativelength: arrnegative.length,
-    })
+    });
   },
   selectType: function(e) {
     var typeid = e.target.dataset.id;
@@ -56,6 +56,11 @@ Page({
         activeState: false,
       })
     }
+  },
+  sendMessage: function(e) {
+    wx.navigateTo({
+      url: '../message/message',
+    })
   },
 
   /**

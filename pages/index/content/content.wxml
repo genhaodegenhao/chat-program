@@ -18,7 +18,7 @@
       <view class='weui-flex__item content-right'>
         <scroll-view scroll-y style="height: 510rpx;" scroll-top="{{scrollTop}}" scroll-into-view="{{toView}}" scroll-with-animation="true">
         <view wx:for="{{goods}}" wx:key="index">
-          <view class='food-title' id="menu{{index}}">{{item.name}}</view>
+          <view class='food-title' id="menu{{index}}" style="position: sticky;top: 0;z-index: 1000;">{{item.name}}</view>
           <view class='food-item' data-foodname="{{item}}" bindtap='clickfooddetail' wx:for="{{item.foods}}" wx:key="index">
             <view class='food-icon'><image src="{{item.icon}}"></image></view>
             <view class='food-content'>
@@ -43,6 +43,6 @@
     <view>price</view>
   </view>
   <view animation="{{animationDate}}" class="{{tabArr.curBdIndex=='2'? 'active' : ''}} tab-item">
-    <view>ratings</view>
+    <include src="../rating/rating.wxml"/>
   </view>
 </view>

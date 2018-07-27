@@ -39,7 +39,7 @@ Page({
     var that = this;
     wx.request({
       url: 'https://www.luckygenhao3.top/elm/static/data.json',
-      headers: {
+      header: {
         'Content-Type': 'application/json'
       },
       success: function(res) {

@@ -1,0 +1,31 @@
+<view class='message-wrapper'>
+  <view>
+    <textarea bindinput="handlemsgInput" value="{{messageText}}" maxlength="200" class="msgInput" placeholder="请填写您对商家的评价" />
+  </view>
+  <view class="submitBtn" bindtap="submitmsg">
+    <button type="primary" disabled="{{disable}}">确认提交</button>
+  </view>
+  <view class="ratingArea">
+    <view class="title">显示留言</view>
+    <view wx:for="{{ratingLists}}" wx:key="index" class="ratingItem" data-id="{{item.id}}">
+      <view>{{item.message}}</view>
+      <view class="bottom">
+        <view>{{item.ptime}}</view>
+        <view bindtap="bindzan" data-id="{{item.id}}" data-addnum="{{item.addcount}}">
+          <icon class="iconfont icon-zan"></icon>
+            {{item.addcount}}
+        </view>
+        <view bindtap="bindcai" data-id="{{item.id}}" data-mincount="{{item.mincount}}">
+          <icon class="iconfont icon-cai"></icon>
+          {{item.mincount}}
+        </view>
+        <view bindtap="binddelete" data-id="{{item.id}}" class="delete">删除</view>
+      </view>
+    </view>
+    <view wx:if="{{nomoreflag}}" class="nomoremsg">暂无更多留言</view>
+    <view wx:else class="weui-loadmore">
+      <icon class="weui-loading"></icon>
+      <block class="weui-loadmore__tips">正在加载</block>
+    </view>
+  </view>
+</view>

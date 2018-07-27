@@ -1,0 +1,39 @@
+@import '../../iconfont.wxss';
+.message-wrapper,
+ratingArea {
+  padding: 0 50rpx;
+}
+.msgInput {
+  width: calc(100% - 40rpx);
+  padding: 20rpx 20rpx 0;
+  border: 1px solid #ccc;
+}
+.submitBtn {
+  margin-top: 30rpx;
+}
+.title {
+  font-size: 50rpx;
+  font-weight: bold;
+  margin: 30rpx 0;
+}
+.ratingItem {
+  padding: 20rpx 0;
+  font-size: 30rpx;
+}
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.icon-zan {
+  vertical-align: top;
+}
+.delete {
+  color: red;
+}
+.nomoremsg {
+  text-align: center;
+  margin: 20rpx 0;
+  font-size: 28rpx;
+}
