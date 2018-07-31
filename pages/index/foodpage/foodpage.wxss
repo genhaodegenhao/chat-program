@@ -102,3 +102,30 @@
 .iconfont.active {
   color: green;
 }
+.rating-area {
+  padding: 0 36rpx;
+}
+.rating-item {
+  display: flex;
+  margin: 20rpx 0;
+}
+.avatar {
+  margin-right: 20rpx;
+}
+.item-avatar {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+.rating-box {
+  width: 100%;
+}
+.rating-box .top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20rpx;
+  margin-bottom: 10rpx;
+}
+.rating-box .text {
+  font-size: 24rpx;
+}

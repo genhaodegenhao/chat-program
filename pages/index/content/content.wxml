@@ -1,22 +1,22 @@
 <view class='content'>
   <view class='tab'>
     <view class='weui-flex' bindtap='tabFun'>
-      <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}} weui-flex__item" data-id='0'>套餐</view>
-      <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}} weui-flex__item" data-id='1'>价格</view>
+      <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}} weui-flex__item" data-id='0'>点餐</view>
+      <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}} weui-flex__item" data-id='1'>商家</view>
       <view class="{{tabArr.curHdIndex=='2'? 'active' : ''}} weui-flex__item" data-id='2'>评价</view>
     </view>
   </view>
   <view animation="{{animationData}}" class="{{tabArr.curBdIndex=='0'? 'active' : ''}} tab-item">
     <view class="weui-flex">
       <view class='weui-flex__item content-left'>
-        <scroll-view scroll-y style="height: 510rpx;" scroll-top="{{scrollTop}}" scroll-into-view="{{toView}}" scroll-with-animation="true">
-          <view class='left-item' wx:for="{{goods}}" wx:key="index" bindtap='clickfindid'>
+        <scroll-view scroll-y style="height: 800rpx;" scroll-top="{{scrollTop}}" scroll-into-view="{{toView}}" scroll-with-animation="true">
+          <view class="left-item {{leftFlag == index ? 'leftactive' : ''}}" data-leftid="{{index}}" wx:for="{{goods}}" wx:key="index" bindtap='clickfindid'>
             <view class='left-item-inner' id="menu{{index}}">{{item.name}}</view>
           </view>
         </scroll-view>
       </view>
       <view class='weui-flex__item content-right'>
-        <scroll-view scroll-y style="height: 510rpx;" scroll-top="{{scrollTop}}" scroll-into-view="{{toView}}" scroll-with-animation="true">
+        <scroll-view scroll-y style="height: 800rpx;" scroll-top="{{scrollTop}}" scroll-into-view="{{toView}}" scroll-with-animation="true">
         <view wx:for="{{goods}}" wx:key="index">
           <view class='food-title' id="menu{{index}}" style="position: sticky;top: 0;z-index: 1000;">{{item.name}}</view>
           <view class='food-item' data-foodname="{{item}}" bindtap='clickfooddetail' wx:for="{{item.foods}}" wx:key="index">
@@ -40,7 +40,7 @@
     </view>
   </view>
   <view animation="{{animationDatar}}" bindtap='rotateAndScale' class="{{tabArr.curBdIndex=='1'? 'active' : ''}} tab-item">
-    <view>price</view>
+    <include src="../shopper/shopper.wxml"/>
   </view>
   <view animation="{{animationDate}}" class="{{tabArr.curBdIndex=='2'? 'active' : ''}} tab-item">
     <include src="../rating/rating.wxml"/>

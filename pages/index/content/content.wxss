@@ -9,6 +9,10 @@
   font-size: 28rpx;
   border-bottom: 2rpx solid #ccc;
 }
+.content-left .leftactive {
+  background: #fff;
+  font-weight: bold;
+}
 .content-left .left-item .left-item-inner {
   padding: 30rpx 10rpx;
 }

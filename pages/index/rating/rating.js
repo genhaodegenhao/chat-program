@@ -20,5 +20,8 @@ Page({
                 console.log(res.data);
             }
         })
+    },
+    onReachBottom: function(e) {
+        console.log(1111111111);
     }
 })

@@ -1,0 +1,28 @@
+<!--pages/index/shopper/shopper.wxml-->
+<view class="seller">
+    <view class="deliveryInfo">
+        <view class="title">配送信息</view>
+        <view class="time">{{seller.description}}约{{seller.deliveryTime}}分钟送达</view>
+        <view class="price">配送费：{{seller.deliveryPrice}}元</view>
+    </view>
+    <view class="sliderBg"></view>
+    <view class="activity">
+        <view class="title">优惠活动</view>
+        <view class="info" wx:for="{{seller.supports}}" wx:key="index">
+            <view class="iconStyle">优惠</view>
+            <view>{{item.description}}</view>
+        </view>
+    </view>
+    <view class="sellerPic">
+        <view class="title">商家图片</view>
+        <view class="left" wx:for="{{seller.pics}}" wx:key="index">
+            <image bindtap="scaleImg" class="img" src="{{item}}" data-src="{{item}}"></image>
+        </view>
+    </view>
+    <view class="infomation">
+        <view class="title">商家信息</view>
+        <view class="info" wx:for="{{seller.infos}}" wx:key="index">
+            {{item}}
+        </view>
+    </view>
+</view>

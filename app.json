@@ -13,34 +13,10 @@
     "backgroundTextStyle":"#eee",
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "微信小程序",
-    "navigationBarTextStyle":"black",
-    "enablePullDownRefresh": true
+    "navigationBarTextStyle":"black"
   },
   "networkTimeout": {
     "request": 10000,
     "downloadFile": 10000
-  },
-  "tabBar": {
-    "selectedColor": "#ff0000",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "首页",
-        "iconPath": "pages/images/shouye.png",
-        "selectedIconPath": "pages/images/shouyesel.png"
-      },
-      {
-        "pagePath": "pages/bottomtab/tab",
-        "text": "购物车",
-        "iconPath": "pages/images/cart.png",
-        "selectedIconPath": "pages/images/cartsel.png"
-      },
-      {
-        "pagePath": "pages/person/person",
-        "text": "个人中心",
-        "iconPath": "pages/images/person.png",
-        "selectedIconPath": "pages/images/personsel.png"
-      }
-    ]
   }
 }

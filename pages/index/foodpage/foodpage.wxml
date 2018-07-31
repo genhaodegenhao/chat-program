@@ -22,14 +22,52 @@
   <view class='food-rating'>
     <view class='rating-types'>
       <view class='dec'>商品评价</view>
-      <view bindtap='selectType' class="rating-type positive {{typeid=='0'? 'type-active' : ''}}" data-id="0">全部<text>{{ratinglength}}</text></view>
-      <view bindtap='selectType' class="rating-type positive {{typeid=='1'? 'type-active' : ''}}" data-id="1">推荐<text>{{positivelength}}</text></view>
-      <view bindtap='selectType' class="rating-type negative {{typeid=='2'? 'type-active' : ''}}" data-id="2">吐槽<text>{{negativelength}}</text></view>
+      <view bindtap='selectType' class="rating-type positive {{typeid=='2'? 'type-active' : ''}}" data-id="2">全部<text>{{ratinglength}}</text></view>
+      <view bindtap='selectType' class="rating-type positive {{typeid=='0'? 'type-active' : ''}}" data-id="0">推荐<text>{{positivelength}}</text></view>
+      <view bindtap='selectType' class="rating-type negative {{typeid=='1'? 'type-active' : ''}}" data-id="1">吐槽<text>{{negativelength}}</text></view>
     </view>
     <view class='rating-switch' bindtap='showRatingInfo'>
       <text class="iconfont icon-roundcheckfill {{activeState == false ? '' : 'active'}}"></text>
       <text class='only-show'>只显示有内容的评价</text>
     </view>
-    <button bindtap='sendMessage' type="primary">给商家留言</button>
+    <view class="rating-area">
+      <view wx:if="{{allFlag}}" wx:for="{{allRatings}}" wx:key="index" class="rating-item">
+        <view class="avatar">
+          <image class="item-avatar" src="{{item.avatar}}"></image>
+        </view>
+        <view class="rating-box">
+          <view class="top">
+            <view>{{item.username}}</view>
+            <view>{{item.rateTime}}</view>
+          </view>
+          <view class="text">{{item.text}}</view>
+        </view>
+      </view>
+      <view wx:if="{{posiFlag}}" wx:for="{{posiRatings}}" wx:key="index" class="rating-item">
+        <view class="avatar">
+          <image class="item-avatar" src="{{item.avatar}}"></image>
+        </view>
+        <view class="rating-box">
+          <view class="top">
+            <view>{{item.username}}</view>
+            <view>{{item.rateTime}}</view>
+          </view>
+          <view class="text">{{item.text}}</view>
+        </view>
+      </view>
+      <view wx:if="{{negaFlag}}" wx:for="{{negaRatings}}" wx:key="index" class="rating-item">
+        <view class="avatar">
+          <image class="item-avatar" src="{{item.avatar}}"></image>
+        </view>
+        <view class="rating-box">
+          <view class="top">
+            <view>{{item.username}}</view>
+            <view>{{item.rateTime}}</view>
+          </view>
+          <view class="text">{{item.text}}</view>
+        </view>
+      </view>
+    </view>
+    <button bindtap='sendMessage' type="primary">给商家评论</button>
   </view>
 </view>

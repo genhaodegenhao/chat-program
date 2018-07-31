@@ -1,1 +1,43 @@
-<view>1{{name}}</view>
+<view class='message-wrapper'>
+    <view class="ratingArea">
+        <view class="scoreArea">
+            <view class="totalScore">
+                <view class="score">{{seller.score}}</view>
+                <view>商家评分</view>
+            </view>
+            <view class="otherScore">
+                <view>
+                    <view>质量</view>
+                    <view>{{seller.foodScore}}</view>
+                </view>
+                <view>
+                    <view>服务</view>
+                    <view>{{seller.serviceScore}}</view>
+                </view>
+                <view>
+                    <view>排名率</view>
+                    <view>{{seller.rankRate}}%</view>
+                </view>
+            </view>
+        </view>
+        <view class="title">用户评论</view>
+        <view wx:for="{{ratingLists}}" wx:key="index" class="ratingItem" data-id="{{item.id}}">
+            <view>{{item.message}}</view>
+            <view class="bottom">
+                <view>{{item.ptime}}</view>
+                <view>
+                    <icon class="iconfont icon-zan"></icon>
+                    {{item.addcount}}
+                </view>
+                <view>
+                    <icon class="iconfont icon-cai"></icon>
+                    {{item.mincount}}
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{nomoreflag}}" class="nomoremsg">暂无更多留言</view>
+        <view wx:else class="weui-loadmore" bindtap='moreRating'>
+            <block class="weui-loadmore__tips">查看更多评论</block>
+        </view>
+    </view>
+</view>

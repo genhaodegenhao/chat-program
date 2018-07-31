@@ -7,17 +7,17 @@ Page({
       {
         "id": 1,
         "title": "page1",
-        "imagesUrl": "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg"
+        "imagesUrl": "http://pic.58pic.com/58pic/14/90/28/76958PICdwu_1024.jpg"
       },
       {
         "id": 2,
         "title": "page2",
-        "imagesUrl": "http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"
+        "imagesUrl": "http://pic.58pic.com/58pic/14/90/98/82t58PICJ7F_1024.jpg"
       },
       {
         "id": 3,
         "title": "page3",
-        "imagesUrl": "http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg"
+        "imagesUrl": "http://pic.qiantucdn.com/58pic/14/89/82/83N58PICkjM_1024.jpg"
       }
     ],
     indicatorDots: true,
@@ -33,9 +33,18 @@ Page({
     animationDate: {},
     text: 'Hello World',
     toView: 'menu0',
-    arr: [],
+    iconsImg: [],
+
+    ratingLists: [],
+    infinitflag: true,
+    nomoreflag: false,
+    onReachBottomDistance: 100
   },
   onLoad: function() {
+    this.initFoodData();
+    this.initRatingData();
+  },
+  initFoodData: function() {
     var that = this;
     wx.request({
       url: 'https://www.luckygenhao3.top/elm/static/data.json',
@@ -47,6 +56,7 @@ Page({
           console.log(res.data.goods);
           that.setData({
             goods: res.data.goods,
+            seller: res.data.seller
           })
         }
       }
@@ -110,7 +120,7 @@ Page({
   },
   onPageScroll: function (res) {
     // Do something when page scroll
-    console.log(res.scrollTop);
+    // console.log(res.scrollTop);
   },
   onTabItemTap(item) {
     console.log(item.index)
@@ -128,9 +138,12 @@ Page({
   // content
   clickfindid: function (e) {
     var menu = e.target.id;
-    console.log(menu);
+    var leftid = e.currentTarget.dataset.leftid;
+    console.log(e);
+    console.log(leftid);
     this.setData({
-      toView: menu
+      toView: menu,
+      leftFlag: leftid
     })
   },
   clickfooddetail: function (current) {
@@ -139,6 +152,54 @@ Page({
     var foodname = encodeURIComponent(JSON.stringify(obj));
     wx.navigateTo({
       url: "foodpage/foodpage?foodname="+foodname,
+    })
+  },
+  scaleImg: function(e) {
+    console.log(e);
+    wx.previewImage({
+      current: e.target.dataset.src, // 当前显示图片的http链接
+      urls: this.data.seller.pics // 需要预览的图片http链接列表
+    })
+  },
+  initRatingData: function() {
+    let _this = this;
+    wx.request({
+      url: 'https://www.luckygenhao3.top/blog/selectText.php',
+      data: {
+        pageNumber: 0,
+        pageSize: 3
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        if (res.statusCode == 200) {
+          console.log(res.data);
+          if(res.data.length == 0) {
+            _this.setData({
+              infinitflag: false,
+              nomoreflag: true,
+            })
+          } else {
+            for(let i = 0; i < res.data.length; i++){
+              res.data[i].ptime = new Date(res.data[i].ptime * 1000).toLocaleString();
+              _this.data.ratingLists.push(res.data[i]);
+            }
+            _this.setData({
+              ratingLists: _this.data.ratingLists,
+            });
+          }
+        } else {
+          wx.showToast({
+            title: '请检查网络',
+          });
+        }
+      }
+    })
+  },
+  moreRating: function(e) {
+    wx.navigateTo({
+      url: './message/message',
     })
   }
 })

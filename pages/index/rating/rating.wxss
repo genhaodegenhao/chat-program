@@ -1,0 +1,56 @@
+@import '../../iconfont.wxss';
+.message-wrapper {
+  height: 355px;
+  padding: 20rpx 50rpx;
+  overflow: scroll;
+}
+.message-wrapper .scoreArea {
+    display: flex;
+    font-size: 30rpx;
+}
+.message-wrapper .totalScore {
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    margin-right: 30rpx; 
+    align-items: center;
+}
+.message-wrapper .score {
+    font-size: 50rpx;
+    color: #ff6000;
+    font-weight: bold;
+}
+.message-wrapper .otherScore {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+}
+.title {
+  font-size: 35rpx;
+  font-weight: bold;
+  margin: 30rpx 0;
+}
+.ratingItem {
+  padding: 20rpx 0;
+  font-size: 30rpx;
+}
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.icon-zan {
+  vertical-align: top;
+}
+.delete {
+  color: red;
+}
+.nomoremsg {
+  text-align: center;
+  margin: 20rpx 0;
+  font-size: 28rpx;
+}
+.avatar {
+  margin-right: 20rpx;
+}

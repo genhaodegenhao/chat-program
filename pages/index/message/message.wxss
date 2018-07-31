@@ -37,3 +37,6 @@ ratingArea {
   margin: 20rpx 0;
   font-size: 28rpx;
 }
+.avatar {
+  margin-right: 20rpx;
+}

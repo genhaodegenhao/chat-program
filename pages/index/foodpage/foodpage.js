@@ -6,13 +6,18 @@ Page({
    */
   data: {
     food: {},
-    ratings: {},
+    allRatings: [],
+    posiRatings: [],
+    negaRatings: [],
     ratinglength: '',
     positivelength: '',
     negativelength: '',
-    typeid: 0,
+    typeid: 2,
     POSITIVE: 0,
     NEGATIVE: 1,
+    posiFlag: false,
+    negaFlag: false,
+    allFlag: true,
     activeState: false,
   },
 
@@ -21,16 +26,21 @@ Page({
    */
   onLoad: function (options) {
     var food = JSON.parse(decodeURIComponent(options.foodname));
-    console.log(food);
     var ratings = food.ratings;
-    console.log(ratings);
     var arrpositive = [];
     var arrnegative = [];
+    var posiRatings = [];
+    var negaRatings = [];
+    var allRatings = [];
     for(var i = 0; i < ratings.length; i++) {
+      ratings[i].rateTime = new Date(ratings[i].rateTime).toLocaleString();
+      allRatings.push(ratings[i]);
       if (ratings[i].rateType == this.data.POSITIVE) {
         arrpositive.push(ratings[i].rateType);
+        posiRatings.push(ratings[i]);
       } else if (ratings[i].rateType == this.data.NEGATIVE) {
         arrnegative.push(ratings[i].rateType);
+        negaRatings.push(ratings[i]);
       }
     }
     this.setData({
@@ -38,12 +48,34 @@ Page({
       ratinglength: ratings.length,
       positivelength: arrpositive.length,
       negativelength: arrnegative.length,
+      posiRatings: posiRatings,
+      negaRatings: negaRatings,
+      allRatings: allRatings
     });
   },
   selectType: function(e) {
     var typeid = e.target.dataset.id;
+    var posiFlag;
+    var negaFlag;
+    var allFlag;
+    if(typeid == 0) {
+      allFlag = false;
+      posiFlag = true;
+      negaFlag = false;
+    } else if(typeid == 1) {
+      allFlag = false;
+      posiFlag = false;
+      negaFlag = true;
+    } else {
+      allFlag = true;
+      posiFlag = false;
+      negaFlag = false;
+    }
     this.setData({
-      typeid: typeid
+      typeid: typeid,
+      posiFlag: posiFlag,
+      negaFlag: negaFlag,
+      allFlag: allFlag
     })
   },
   showRatingInfo: function(e) {

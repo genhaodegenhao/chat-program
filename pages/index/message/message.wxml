@@ -6,7 +6,7 @@
     <button type="primary" disabled="{{disable}}">确认提交</button>
   </view>
   <view class="ratingArea">
-    <view class="title">显示留言</view>
+    <view class="title">显示评论</view>
     <view wx:for="{{ratingLists}}" wx:key="index" class="ratingItem" data-id="{{item.id}}">
       <view>{{item.message}}</view>
       <view class="bottom">
@@ -22,7 +22,7 @@
         <view bindtap="binddelete" data-id="{{item.id}}" class="delete">删除</view>
       </view>
     </view>
-    <view wx:if="{{nomoreflag}}" class="nomoremsg">暂无更多留言</view>
+    <view wx:if="{{nomoreflag}}" class="nomoremsg">暂无更多评论</view>
     <view wx:else class="weui-loadmore">
       <icon class="weui-loading"></icon>
       <block class="weui-loadmore__tips">正在加载</block>
